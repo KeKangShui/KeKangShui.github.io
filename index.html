@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/page.css"/>
+    <script src="javascripts/jquery-1.12.4.min.js"></script>
+    <script src="javascripts/Chart.js"></script>
+    <script src="javascripts/index.js"></script>
+
+</head>
+<body>
+<!--
+	这个控制背景图片
+	-->
+<div id="div1">
+    <img src="http://dl.bizhi.sogou.com/images/2013/11/26/421428.jpg?f=download"/>
+</div>
+<header>
+
+    <div id="time">
+
+        <!--访问量-->
+        <div align="center" id="overread">
+            <span style="color: blanchedalmond;font-size: 30px;position: absolute;margin-left: -120px;line-height: 100px">历史访问量：</span>
+            <a href="http://www.amazingcounters.com">
+                <img src="http://cc.amazingcounters.com/counter.php?i=3205147&c=9615754" alt="AmazingCounters.com"
+                     style="height: 60px;margin-top: 20px;margin-left: 70px">
+            </a>
+        </div>
+
+
+        <!--控制头部右边的时间-->
+        <div align="center" id="time_right"></div>
+
+    </div>
+</header>
+
+
+<div id="box">
+<div class="box_left">
+    <span class="name" onclick="show_box_right()">永远相信<br>美好的事情即将发生</span>
+
+    <div class="nav">
+        <ul class="nav_list">
+            <li><a onclick="show_box_right_hidden()">Music</a></li>
+        </ul>
+        <ul>
+            <li><a>About</a></li>
+        </ul>
+        <ul>
+            <li><a>Porfolior</a></li>
+        </ul>
+        <ul>
+            <li><a onclick="show_box_right_movie()">Serive</a></li>
+        </ul>
+        <ul>
+            <li><a>Contact</a></li>
+        </ul>
+    </div>
+</div>
+<div class="box_right">
+    <div class="logo">
+        <img src="images/mingpain.png"
+             style="position: absolute;
+				   	height:600px;
+				   	margin-top: 50px;
+				   "
+                />
+    </div>
+    <div id="introduce">
+        怀着改变世界的梦想，学着牛B的技术，无论前端还是后端，都需要学习，这样才能全面发展。
+        从面向对象的java到脚本控制的javascript，从面向过程的C语言到高性能的服务器Nginx。
+        天天面向对象，但我的对象在哪里？就是你了，没错，说的就是你！<br>这个为测试版的网页，
+        还有很多需要改进的地方，github部署个人主页，等着你
+    </div>
+</div>
+
+<div class="box_right_hidden">
+    <div id="music_player"
+         style="
+             width: 500px;
+             margin: 10px auto;
+             height: 300px;
+             ">
+
+
+        <embed src="https://www.xiami.com/widget/206303769_78896,1774191999,1775713592,_500_300_5695c1_457cb4_1/multiPlayer.swf"
+               type="application/x-shockwave-flash"
+               alt="请使用谷歌浏览器打开"
+               width="500"
+               height="300"
+               wmode="opaque"
+               >
+
+        </embed>
+        <p align="center"> 播放器无法显示？请使用谷歌流浪器</p>
+
+        <div class="music_introduce" style="margin-top: 0px" >
+            <span>
+                链接：<br>
+                <a href="http://pan.baidu.com/s/1i4YzLSL" style="font-family: Aldrich">
+                    <img src="images/crazy%20trees.jpg"   style="width: 150px">
+                </a>
+                <span>that is a story about a boy....</span>
+            </span>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+<!--
+    作者：1031734796@qq.com
+    时间：2016-05-23
+    描述：引用表格布局
+-->
+<table class="table" border="1px" bgcolor="#B0C4DE">
+    <tr class="firstline">
+        <td class="myskills" colspan="3">My Skills</td>
+
+    </tr>
+    <tr class="pic">
+        <td>
+            <canvas id="canvas" height="300" width="300"></canvas>
+        </td>
+        <td>
+            <canvas id="canvas2" height="300" width="300"></canvas>
+        </td>
+        <td>
+            <canvas id="canvas3" height="300" width="300"></canvas>
+        </td>
+    </tr>
+    <!--<tr class="skills">-->
+    <!--<th>-->
+    <!--<a href="#" class="java">-->
+    <!--Java-->
+    <!--</a>-->
+    <!--</th>-->
+    <!--<th>-->
+    <!--<a href="#">-->
+    <!--Nginx-->
+    <!--</a>-->
+    <!--</th>-->
+    <!--<th>-->
+    <!--<a href="#">-->
+    <!--JavaScript-->
+    <!--</a>-->
+    <!--</th>-->
+    <!--</tr>-->
+</table>
+
+<div class="show" id="tab">
+    <div class="tap" id="tab-title">
+        <ul>
+            <li class="select">
+                <a href="#">Java</a>
+            </li>
+            <li>
+                <a href="#">Nginx</a>
+            </li>
+            <li>
+                <a href="#">JavaScript</a>
+            </li>
+        </ul>
+    </div>
+    <div class="tap-content" id="tab-content">
+        <div class="tapct" style="display: block">
+
+            <table class="nan">
+                <tr>
+                    <th>
+                        <img src="images/JAVA.jpg" style="width: 100px">
+
+                    </th>
+
+                </tr>
+                <tr>
+                    <td>
+                        Java语言是一种跨平台、适合于分布式计算的、面向对象的编程语言。
+                        Java 技术具有简单性、稳健性、平台移植性和安全性，
+                        广泛应用于桌上型应用程序、电子设备的嵌入式软件开发、建设大型的分布式企业级应用程序
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="tapct" style="display: none">
+            <table class="nan">
+                <tr>
+                    <th>
+                        <img src="images/nginx.jpg" width="100px">
+
+                    </th>
+
+                </tr>
+                <tr>
+                    <td>
+                        Nginx ("engine x") 是一个高性能的HTTP和反向代理服务器，也是一个IMAP/POP3/SMTP服务器。
+                        Nginx是由Igor Sysoev为俄罗斯访问量第二的Rambler.ru站点开发的，
+                        第一个公开版本0.1.0发布于2004年10月4日。其将源代码以类BSD许可证的形式发布，
+                        因它的稳定性、丰富的功能集、示例配置文件和低系统资源的消耗而闻名。
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+        <div class="tapct" style="display:none;">
+            <table class="nan">
+                <tr>
+                    <th>
+                        <img src="images/JAVASCRIPT.JPG" width="100px">
+
+                    </th>
+
+                </tr>
+                <tr>
+                    <td>
+                        JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，
+                        内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，
+                        广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用
+                        ，用来给HTML网页增加动态功能。
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<a class="totop" href="javascript:;" id="totop"></a>
+<footer>
+    <div class="footing">
+        <ul>
+            <li>
+                <a href="javascript:;">Tel:1305815****</a>
+            </li>
+            <li>
+                <a href="javascript:;">Email:1031734796@qq.com</a>
+            </li>
+
+        </ul>
+
+    </div>
+</footer>
+<!--
+    作者：1031734796@qq.com
+    时间：2016-05-25
+    描述：绘制图形
+-->
+<canvas id="mycanvas" width="600px" height="700px" style="margin: 10px auto;">
+
+</canvas>
+-->
+
+
+<script type="text/javascript">
+window.onload = function () {
+    // draw();
+    //返回顶部
+    time();
+
+    textticker();
+    show();
+    draw2();
+    var topbtn = document.getElementById("totop");//定义一个按钮，获取ID
+    var timer = null;//定义一个为空的计时器
+    var pagelookheight = document.documentElement.clientHeight;//获取当前高度
+    /*获取当前页面高度，
+     根据高度进行相关操作
+     */
+    window.onscroll = function () {
+        var backtop = document.body.scrollTop;
+        if (backtop > pagelookheight) {
+            totop.style.display = "block"
+        } else {
+            totop.style.display = "none";
+        }
+        totop.onclick = function () {
+            timer = setInterval(function () {
+                var backtop = document.body.scrollTop;
+                var speedtop = backtop / 5;
+                document.body.scrollTop = backtop - speedtop;
+                if (backtop == 0) {
+                    clearInterval(timer);
+                }
+            }, 30);
+        }
+
+    }
+
+
+}
+//    function draw(){
+//        var canvas=document.getElementById("mycanvas");
+//        if (canvas=null){
+//            return false;
+//        }
+//        var context=mycanvas.getContext("2d");
+//        context.fillStyle="#eeeeef";
+//
+//        context.fillRect(0,0,600,700);
+//        for(var i=0;i<10;i++){
+//            context.beginPath();
+//            context.arc(i*25,i*25,i*10,0,Math.PI*2,true);
+//            context.closePath();
+//            context.fill();
+//            context.fillStyle="rgba(255,0,0,0.25)";
+//            context.fill();
+//        }
+//    }
+
+//画个人技能图
+function draw2() {
+
+    var pieData = [
+        {
+            value: 70,
+            color: "#F38630"
+        },
+
+        {
+            value: 100,
+            color: "#69D2E7"
+        }
+
+    ];
+    var myPie = new Chart(document.getElementById("canvas").getContext("2d")).Pie(pieData);
+    var pieDate = [
+        {
+            value: 30,
+            color: "#F38630"
+        },
+
+        {
+            value: 100,
+            color: "#69D2E7"
+        }
+
+    ];
+    var myPie = new Chart(document.getElementById("canvas2").getContext("2d")).Pie(pieDate);
+    var pieDate = [
+        {
+            value: 100,
+            color: "#F38630"
+        },
+
+        {
+            value: 100,
+            color: "#69D2E7"
+        }
+
+    ];
+    var myPie = new Chart(document.getElementById("canvas3").getContext("2d")).Pie(pieDate);
+
+}
+
+
+//    控制显示右边栏显示
+function show_box_right_hidden() {
+
+    document.getElementsByClassName("box_right_hidden")[0].style.display = "block";
+    document.getElementsByClassName("box_right")[0].style.display = "none";
+
+
+}
+
+function show_box_right() {
+    document.getElementsByClassName("box_right")[0].style.display = "block";
+    document.getElementsByClassName("box_right_hidden")[0].style.display = "none";
+
+}
+
+
+//时间展示
+function time() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    var d = today.getFullYear();
+    m = checktime(m);
+    s = checktime(s);
+
+    document.getElementById("time_right").innerHTML = d + "," + h + ":" + m + ":" + s;
+    t = setTimeout(function () {
+        time();
+    }, 1000);
+}
+function checktime(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
+}
+
+
+var max = 0;
+var sd = 150;  //这里是控制速度的
+var txt, lentxt, go;
+function textlist() {
+    if (max >= lentxt) {
+        clearTimeout(go);
+    }
+    document.getElementById('introduce').innerHTML += txt.substr(max, 1);
+    document.getElementById('introduce').innerHTML = document.getElementById('introduce').innerHTML.replace(/\%\$/ig, '<br>')
+    max++
+}
+function textticker() {
+    txt = document.getElementById('introduce').innerHTML;
+    txt = txt.replace(/\<br\>/ig, '%$')
+    lentxt = txt.length;
+    document.getElementById('introduce').innerHTML = '';
+    go = setInterval(textlist, sd);
+}
+
+
+//统计浏览次数
+//    var caution = false
+//    function setCookie(name, value, expires, path, domain, secure) {
+//        var curCookie = name + "=" + escape(value) +
+//                ((expires) ? "; expires=" + expires.toGMTString() : "") +
+//                ((path) ? "; path=" + path : "") +
+//                ((domain) ? "; domain=" + domain : "") +
+//                ((secure) ? "; secure" : "")
+//        if (!caution || (name + "=" + escape(value)).length <= 4000)
+//            document.cookie = curCookie
+//        else if (confirm("Cookie exceeds 4KB and will be cut!"))
+//            document.cookie = curCookie
+//    }
+//    function getCookie(name) {
+//        var prefix = name + "="
+//        var cookieStartIndex = document.cookie.indexOf(prefix)
+//        if (cookieStartIndex == -1)
+//            return null
+//        var cookieEndIndex = document.cookie.indexOf(";", cookieStartIndex + prefix.length)
+//        if (cookieEndIndex == -1)
+//            cookieEndIndex = document.cookie.length
+//        return unescape(document.cookie.substring(cookieStartIndex + prefix.length,
+//                cookieEndIndex))
+//    }
+//    function deleteCookie(name, path, domain) {
+//        if (getCookie(name)) {
+//            document.cookie = name + "=" +
+//                    ((path) ? "; path=" + path : "") +
+//                    ((domain) ? "; domain=" + domain : "") +
+//                    "; expires=Thu, 01-Jan-70 00:00:01 GMT"
+//        }
+//    }
+//    function fixDate(date) {
+//        var base = new Date(0)
+//        var skew = base.getTime()
+//        if (skew > 0)
+//            date.setTime(date.getTime() - skew)
+//    }
+//    var now = new Date()
+//    fixDate(now)
+//    now.setTime(now.getTime() + 730 * 24 * 60 * 60 * 1000)
+//    var visits = getCookie("counter")
+//    if (!visits)
+//        visits = 1
+//    else
+//        visits = parseInt(visits) + 1
+//    setCookie("counter", visits, now)
+//
+//    //  document.write("<font size=6 color=red>欢迎您，您是第：" + visits + " 个访问该站点的访客");
+//    var s=document.getElementById("overread");
+//    s.innerHTML=("<font size=6 color=red>欢迎您，您是第：" + visits + " 个访问该站点的访客");
+
+
+</script>
+<!--
+    作者：1031734796@qq.com
+    时间：2016-05-25
+    描述：结束
+-->
+
+
+</body>
+</html>
