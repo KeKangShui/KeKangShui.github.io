@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>as 播放器</title>
+    
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@1.0.7/dist/hls.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dplayer@1.26.0/dist/DPlayer.min.js"></script>
+    <div id="dplayer"></div>
+    <h2>
+        as 播放器
+    </h2>
+
+    <script>
+
+const dp = new DPlayer({
+    container: document.getElementById('dplayer'),
+    autoplay: false,
+    theme: '#FADFA3',
+    loop: true,
+    lang: 'zh-cn',
+    screenshot: true,
+    hotkey: true,
+    preload: 'auto',
+    volume: 0.7,
+    mutex: true,
+    video: {
+        quality: [
+            {
+                name: 'HD',
+                url: 'https://cdn.jsdelivr.net/gh/KeKangShui/move/HongKongDoll80/HongKongDoll80.m3u8',
+                type: 'hls',
+            },
+            {
+                name: 'SD',
+                url: 'http://static.smartisanos.cn/common/video/t1-ui.mp4',
+                type: 'normal',
+            },
+        ],
+        defaultQuality: 0,
+        pic: 'demo.png',
+        thumbnails: 'thumbnails.jpg',
+        // url: 'https://cdn.jsdelivr.net/gh/KeKangShui/move/HongKongDoll80/HongKongDoll80.m3u8',
+        // type: 'hls',
+    // }
+    }
+    // ,
+    // danmaku: {
+    //     id: '9E2E3368B56CDBB4',
+    //     api: 'https://api.prprpr.me/dplayer/',
+    //     token: 'tokendemo',
+    //     maximum: 1000,
+    //     addition: ['https://api.prprpr.me/dplayer/v3/bilibili?aid=4157142'],
+    //     user: 'DIYgod',
+    //     bottom: '15%',
+    //     unlimited: true,
+    // }
+});
+    </script>
+</body>
+
+</html>
