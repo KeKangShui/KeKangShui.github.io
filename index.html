@@ -1,475 +1,1235 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="stylesheets/page.css"/>
-    <script src="javascripts/jquery-1.12.4.min.js"></script>
-    <script src="javascripts/Chart.js"></script>
-    <script src="javascripts/index.js"></script>
-
-</head>
-<body>
-<!--
-	这个控制背景图片
-	-->
-<div id="div1">
-    <img src="http://dl.bizhi.sogou.com/images/2013/11/26/421428.jpg?f=download"/>
-</div>
-<header>
-
-    <div id="time">
-
-        <!--访问量-->
-        <div align="center" id="overread">
-            <span style="color: blanchedalmond;font-size: 30px;position: absolute;margin-left: -120px;line-height: 100px">历史访问量：</span>
-            <a href="http://www.amazingcounters.com">
-                <img src="http://cc.amazingcounters.com/counter.php?i=3205147&c=9615754" alt="AmazingCounters.com"
-                     style="height: 60px;margin-top: 20px;margin-left: 70px">
-            </a>
-        </div>
-
-
-        <!--控制头部右边的时间-->
-        <div align="center" id="time_right"></div>
-
-    </div>
-</header>
-
-
-<div id="box">
-<div class="box_left">
-    <span class="name" onclick="show_box_right()">永远相信<br>美好的事情即将发生</span>
-
-    <div class="nav">
-        <ul class="nav_list">
-            <li><a onclick="show_box_right_hidden()">Music</a></li>
-        </ul>
-        <ul>
-            <li><a>About</a></li>
-        </ul>
-        <ul>
-            <li><a>Porfolior</a></li>
-        </ul>
-        <ul>
-            <li><a onclick="show_box_right_movie()">Serive</a></li>
-        </ul>
-        <ul>
-            <li><a>Contact</a></li>
-        </ul>
-    </div>
-</div>
-<div class="box_right">
-    <div class="logo">
-        <img src="images/mingpain.png"
-             style="position: absolute;
-				   	height:600px;
-				   	margin-top: 50px;
-				   "
-                />
-    </div>
-    <div id="introduce">
-        怀着改变世界的梦想，学着牛B的技术，无论前端还是后端，都需要学习，这样才能全面发展。
-        从面向对象的java到脚本控制的javascript，从面向过程的C语言到高性能的服务器Nginx。
-        天天面向对象，但我的对象在哪里？就是你了，没错，说的就是你！<br>这个为测试版的网页，
-        还有很多需要改进的地方，github部署个人主页，等着你
-    </div>
-</div>
-
-<div class="box_right_hidden">
-    <div id="music_player"
-         style="
-             width: 500px;
-             margin: 10px auto;
-             height: 300px;
-             ">
-
-
-        <embed src="https://www.xiami.com/widget/206303769_78896,1774191999,1775713592,_500_300_5695c1_457cb4_1/multiPlayer.swf"
-               type="application/x-shockwave-flash"
-               alt="请使用谷歌浏览器打开"
-               width="500"
-               height="300"
-               wmode="opaque"
-               >
-
-        </embed>
-        <p align="center"> 播放器无法显示？请使用谷歌流浪器</p>
-
-        <div class="music_introduce" style="margin-top: 0px" >
-            <span>
-                链接：<br>
-                <a href="http://pan.baidu.com/s/1i4YzLSL" style="font-family: Aldrich">
-                    <img src="images/crazy%20trees.jpg"   style="width: 150px">
-                </a>
-                <span>that is a story about a boy....</span>
-            </span>
-
-        </div>
-
-
-    </div>
-</div>
-
-
-<!--
-    作者：1031734796@qq.com
-    时间：2016-05-23
-    描述：引用表格布局
--->
-<table class="table" border="1px" bgcolor="#B0C4DE">
-    <tr class="firstline">
-        <td class="myskills" colspan="3">My Skills</td>
-
-    </tr>
-    <tr class="pic">
-        <td>
-            <canvas id="canvas" height="300" width="300"></canvas>
-        </td>
-        <td>
-            <canvas id="canvas2" height="300" width="300"></canvas>
-        </td>
-        <td>
-            <canvas id="canvas3" height="300" width="300"></canvas>
-        </td>
-    </tr>
-    <!--<tr class="skills">-->
-    <!--<th>-->
-    <!--<a href="#" class="java">-->
-    <!--Java-->
-    <!--</a>-->
-    <!--</th>-->
-    <!--<th>-->
-    <!--<a href="#">-->
-    <!--Nginx-->
-    <!--</a>-->
-    <!--</th>-->
-    <!--<th>-->
-    <!--<a href="#">-->
-    <!--JavaScript-->
-    <!--</a>-->
-    <!--</th>-->
-    <!--</tr>-->
-</table>
-
-<div class="show" id="tab">
-    <div class="tap" id="tab-title">
-        <ul>
-            <li class="select">
-                <a href="#">Java</a>
-            </li>
-            <li>
-                <a href="#">Nginx</a>
-            </li>
-            <li>
-                <a href="#">JavaScript</a>
-            </li>
-        </ul>
-    </div>
-    <div class="tap-content" id="tab-content">
-        <div class="tapct" style="display: block">
-
-            <table class="nan">
-                <tr>
-                    <th>
-                        <img src="images/JAVA.jpg" style="width: 100px">
-
-                    </th>
-
-                </tr>
-                <tr>
-                    <td>
-                        Java语言是一种跨平台、适合于分布式计算的、面向对象的编程语言。
-                        Java 技术具有简单性、稳健性、平台移植性和安全性，
-                        广泛应用于桌上型应用程序、电子设备的嵌入式软件开发、建设大型的分布式企业级应用程序
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <div class="tapct" style="display: none">
-            <table class="nan">
-                <tr>
-                    <th>
-                        <img src="images/nginx.jpg" width="100px">
-
-                    </th>
-
-                </tr>
-                <tr>
-                    <td>
-                        Nginx ("engine x") 是一个高性能的HTTP和反向代理服务器，也是一个IMAP/POP3/SMTP服务器。
-                        Nginx是由Igor Sysoev为俄罗斯访问量第二的Rambler.ru站点开发的，
-                        第一个公开版本0.1.0发布于2004年10月4日。其将源代码以类BSD许可证的形式发布，
-                        因它的稳定性、丰富的功能集、示例配置文件和低系统资源的消耗而闻名。
-                    </td>
-                </tr>
-            </table>
-
-        </div>
-        <div class="tapct" style="display:none;">
-            <table class="nan">
-                <tr>
-                    <th>
-                        <img src="images/JAVASCRIPT.JPG" width="100px">
-
-                    </th>
-
-                </tr>
-                <tr>
-                    <td>
-                        JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，
-                        内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，
-                        广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用
-                        ，用来给HTML网页增加动态功能。
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </div>
-</div>
-<a class="totop" href="javascript:;" id="totop"></a>
-<footer>
-    <div class="footing">
-        <ul>
-            <li>
-                <a href="javascript:;">Tel:1305815****</a>
-            </li>
-            <li>
-                <a href="javascript:;">Email:2750687316@qq.com</a>
-            </li>
-
-        </ul>
-
-    </div>
-</footer>
-<!--
-    作者：1031734796@qq.com
-    时间：2016-05-25
-    描述：绘制图形
--->
-<canvas id="mycanvas" width="600px" height="700px" style="margin: 10px auto;">
-
-</canvas>
--->
-
-
-<script type="text/javascript">
-window.onload = function () {
-    // draw();
-    //返回顶部
-    time();
-
-    textticker();
-    show();
-    draw2();
-    var topbtn = document.getElementById("totop");//定义一个按钮，获取ID
-    var timer = null;//定义一个为空的计时器
-    var pagelookheight = document.documentElement.clientHeight;//获取当前高度
-    /*获取当前页面高度，
-     根据高度进行相关操作
-     */
-    window.onscroll = function () {
-        var backtop = document.body.scrollTop;
-        if (backtop > pagelookheight) {
-            totop.style.display = "block"
-        } else {
-            totop.style.display = "none";
-        }
-        totop.onclick = function () {
-            timer = setInterval(function () {
-                var backtop = document.body.scrollTop;
-                var speedtop = backtop / 5;
-                document.body.scrollTop = backtop - speedtop;
-                if (backtop == 0) {
-                    clearInterval(timer);
-                }
-            }, 30);
-        }
-
-    }
-
-
-}
-      function draw(){
-          var canvas=document.getElementById("mycanvas");
-          if (canvas=null){
-              return false;
-          }
-          var context=mycanvas.getContext("2d");
-          context.fillStyle="#eeeeef";
-  
-          context.fillRect(0,0,600,700);
-          for(var i=0;i<10;i++){
-              context.beginPath();
-              context.arc(i*25,i*25,i*10,0,Math.PI*2,true);
-              context.closePath();
-              context.fill();
-              context.fillStyle="rgba(255,0,0,0.25)";
-              context.fill();
-          }
+<!-- saved from url=(0031)http://www.hxc88.cc/hxc.html -->
+<html style="font-size: 100px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style class="vjs-styles-defaults">
+      .video-js {
+        width: 300px;
+        height: 150px;
       }
 
-//画个人技能图
-function draw2() {
-
-    var pieData = [
-        {
-            value: 70,
-            color: "#F38630"
-        },
-
-        {
-            value: 100,
-            color: "#69D2E7"
+      .vjs-fluid {
+        padding-top: 56.25%
+      }
+    </style>
+    
+    <style>
+        html.pc,
+        body.pc {
+            background: url(https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/bg.jpg) no-repeat;
+            background-size: 100% auto;
         }
 
-    ];
-    var myPie = new Chart(document.getElementById("canvas").getContext("2d")).Pie(pieData);
-    var pieDate = [
-        {
-            value: 30,
-            color: "#F38630"
-        },
-
-        {
-            value: 100,
-            color: "#69D2E7"
+        .qrcode_piao {
+            position: fixed;
+            right: 90px;
+            bottom: 150px;
+            z-index: 10;
+            padding: 3px 3px 0 3px;
+            border-radius: 3px;
+            border: 1px solid #ddd;
+            background: #fff;
+            width: 150px;
+            font-size: 14px;
+            text-align: center;
         }
 
-    ];
-    var myPie = new Chart(document.getElementById("canvas2").getContext("2d")).Pie(pieDate);
-    var pieDate = [
-        {
-            value: 100,
-            color: "#F38630"
-        },
-
-        {
-            value: 100,
-            color: "#69D2E7"
+        img {
+            border: 0;
+            max-width: 100%;
         }
 
-    ];
-    var myPie = new Chart(document.getElementById("canvas3").getContext("2d")).Pie(pieDate);
+        @media only screen and (max-width: 480px){
+            .qrcode_piao {
+                display: none;
+            }
+        }
+    </style>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>牛C网视频福利APP推荐</title>
+	<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/favicon.ico">
+    <meta name="keywords" content="niuc,niuc.net,分享,破解,下载,免费,资源,种子,磁链,网赚,韩国演艺圈,李宗瑞,王梦溪,艳照,福利,微拍,塚本监督,牛C网,牛C,直播,apk,app,安卓,ios,苹果,直播,视频,手机,女优,小天仙,心上人,卡哇伊,小可爱,撸先生pro,嗨浪,茄子,爱情海,富二代,优乐美,咪哒,大波浪,红娘秀,初见,快手,抖音" />
+    <meta name="description" content="牛C网 - 给你最完善的各类免费信息资源!小天仙,心上人,卡哇伊,小可爱,撸先生pro,嗨浪,茄子,爱情海,富二代,优乐美,咪哒,大波浪,红娘秀,初见,快手,抖音" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/iconfont_4.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/common_4.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/swiper.min_4.css">
+    <script src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/hm.js"></script><script src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/hm.js"></script><script src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/hm.js"></script><script src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/common_3.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/jquery.min_4.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/swiper.min_3.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/jquery.qrcode.min_4.js"></script>
+</head>
+
+<body class="pc">
+    <style>
+.margingT {
+margin-bottom: 80px;
+}
+
+
+
+.bottommob{
+    -webkit-box-sizing: border-box;
+    height: 100px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 0 10px;
+    overflow: hidden;
+    width: 100%;
+    opacity: 0.85;
+    background: linear-gradient(90deg,rgb(158, 84, 239),rgb(70, 69, 72));
+}
+
+
+.bottom-pic {
+    position: absolute;
+    top: 12px;
+    margin-left: 5px;
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+
+
+.bottom-pic img {
+width: 100%;
+height: 100%;
+
+}
+
+.bottom-text {
+    margin-left: 97px;
+    line-height: 60px;
+    font-size: 20px;
+    color: #fff;
+    font-weight: 600;
 
 }
 
 
-//    控制显示右边栏显示
-function show_box_right_hidden() {
-
-    document.getElementsByClassName("box_right_hidden")[0].style.display = "block";
-    document.getElementsByClassName("box_right")[0].style.display = "none";
-
-
-}
-
-function show_box_right() {
-    document.getElementsByClassName("box_right")[0].style.display = "block";
-    document.getElementsByClassName("box_right_hidden")[0].style.display = "none";
-
-}
-
-
-//时间展示
-function time() {
-    var today = new Date();
-    var h = today.getHours();
-    var m = today.getMinutes();
-    var s = today.getSeconds();
-    var d = today.getFullYear();
-    m = checktime(m);
-    s = checktime(s);
-
-    document.getElementById("time_right").innerHTML = d + "," + h + ":" + m + ":" + s;
-    t = setTimeout(function () {
-        time();
-    }, 1000);
-}
-function checktime(i) {
-    if (i < 10) {
-        i = "0" + i;
-    }
-    return i;
+.bottom-btn {
+    position: absolute;
+    top: 12px;
+    width: 120px;
+    right: 20px;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    background: linear-gradient(90deg,rgb(239, 84, 205),rgb(242, 185, 13));
+    border-radius: 55px;
+    text-align: center;
+    font-size: 20px;
+    padding: 0 5px;
+    font-weight: bold;
 }
 
 
-var max = 0;
-var sd = 150;  //这里是控制速度的
-var txt, lentxt, go;
-function textlist() {
-    if (max >= lentxt) {
-        clearTimeout(go);
-    }
-    document.getElementById('introduce').innerHTML += txt.substr(max, 1);
-    document.getElementById('introduce').innerHTML = document.getElementById('introduce').innerHTML.replace(/\%\$/ig, '<br>')
-    max++
-}
-function textticker() {
-    txt = document.getElementById('introduce').innerHTML;
-    txt = txt.replace(/\<br\>/ig, '%$')
-    lentxt = txt.length;
-    document.getElementById('introduce').innerHTML = '';
-    go = setInterval(textlist, sd);
+
+.bottommob a {
+position: absolute;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
 }
 
 
-//统计浏览次数
-     var caution = false
-     function setCookie(name, value, expires, path, domain, secure) {
-         var curCookie = name + "=" + escape(value) +
-                 ((expires) ? "; expires=" + expires.toGMTString() : "") +
-                 ((path) ? "; path=" + path : "") +
-                 ((domain) ? "; domain=" + domain : "") +
-                 ((secure) ? "; secure" : "")
-         if (!caution || (name + "=" + escape(value)).length <= 4000)
-             document.cookie = curCookie
-         else if (confirm("Cookie exceeds 4KB and will be cut!"))
-             document.cookie = curCookie
-     }
-     function getCookie(name) {
-         var prefix = name + "="
-         var cookieStartIndex = document.cookie.indexOf(prefix)
-         if (cookieStartIndex == -1)
-             return null
-         var cookieEndIndex = document.cookie.indexOf(";", cookieStartIndex + prefix.length)
-         if (cookieEndIndex == -1)
-             cookieEndIndex = document.cookie.length
-         return unescape(document.cookie.substring(cookieStartIndex + prefix.length,
-                 cookieEndIndex))
-     }
-     function deleteCookie(name, path, domain) {
-         if (getCookie(name)) {
-             document.cookie = name + "=" +
-                     ((path) ? "; path=" + path : "") +
-                     ((domain) ? "; domain=" + domain : "") +
-                     "; expires=Thu, 01-Jan-70 00:00:01 GMT"
-         }
-     }
-     function fixDate(date) {
-         var base = new Date(0)
-         var skew = base.getTime()
-         if (skew > 0)
-             date.setTime(date.getTime() - skew)
-     }
-     var now = new Date()
-     fixDate(now)
-     now.setTime(now.getTime() + 730 * 24 * 60 * 60 * 1000)
-     var visits = getCookie("counter")
-     if (!visits)
-         visits = 1
-     else
-         visits = parseInt(visits) + 1
-     setCookie("counter", visits, now)
- 
-     //  document.write("<font size=6 color=red>欢迎您，您是第：" + visits + " 个访问该站点的访客");
-     var s=document.getElementById("overread");
-     s.innerHTML=("<font size=6 color=red>欢迎您，您是第：" + visits + " 个访问该站点的访客");
+.bottom-wenan{
+    margin-left: 97px;
+    line-height: 25px;
+    font-size: 16px;
+    color: #fff;
+}
+
+</style>
+<style>
+.margingT {
+margin-bottom: 80px;
+}
 
 
+
+.bottommob{
+    -webkit-box-sizing: border-box;
+    height: 100px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 0 10px;
+    overflow: hidden;
+    width: 100%;
+    opacity: 0.85;
+    background: linear-gradient(90deg,rgb(158, 84, 239),rgb(70, 69, 72));
+}
+
+
+.bottom-pic {
+    position: absolute;
+    top: 12px;
+    margin-left: 5px;
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+
+
+.bottom-pic img {
+width: 100%;
+height: 100%;
+
+}
+
+.bottom-text {
+    margin-left: 97px;
+    line-height: 60px;
+    font-size: 20px;
+    color: #fff;
+    font-weight: 600;
+
+}
+
+
+.bottom-btn {
+    position: absolute;
+    top: 12px;
+    width: 120px;
+    right: 20px;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    background: linear-gradient(90deg,rgb(239, 84, 205),rgb(242, 185, 13));
+    border-radius: 55px;
+    text-align: center;
+    font-size: 20px;
+    padding: 0 5px;
+    font-weight: bold;
+}
+
+
+
+.bottommob a {
+position: absolute;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+}
+
+
+.bottom-wenan{
+    margin-left: 97px;
+    line-height: 25px;
+    font-size: 16px;
+    color: #fff;
+}
+
+</style>
+<div class="bottommob" id="bottommob">
+<div class="bottom-con">
+<div class="bottom-pic">
+<img src="https://cdn.jsdelivr.net/gh/niucnet/niucme@latest/wp-content/uploads/2021/05/30/202105300223235.png" style="width:100%; height:100%;" alt="">
+</div>
+<div class="bottom-text" id="bottomText">花间堂</div>
+<div class="bottom-wenan" id="">全球高端私密约炮平台，楼凤、外围、嫩模应有尽有。</div>
+<div class="bottom-btn">立即下载</div>
+</div>
+<a href="https://nismcr.xyz/?ch=cwx33" target="_blank"></a>
+</div>
+<!--底部悬浮-->
+  
+  
+  <!--弹窗开始-->
+
+  <script>
+		    var clipboard = new Clipboard('.btton');
+			clipboard.on('success', function(e) {
+				console.log(e);
+			});
+			clipboard.on('error', function(e) {
+				console.log(e);
+			});
+  </script> 
+    <div class="main-wrap page-index">
+        <div class="main-body">
+            <div class="header-wrap">
+                <div class="header-inner">
+                    <div class="col-center">
+                        <img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/logo256.png" alt="" class="img-logo">
+                        <div class="site-name">牛C网视频福利APP推荐</div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-content">
+                <!-- 公告 -->
+                <div class="warn-wrap">
+                </div>
+                <!-- banner -->
+                <div class="banner-wrap"><div class="list-title">小视频点播APP</div>
+                                         <a onclick="handleRouter('https://jdhot11.site/?_c=jdzc022','https://jdhot11.site/?_c=jdzc022')" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/niucme@latest/wp-content/uploads/2021/03/2021032600105193.png" width="100%" height="100%"></a>
+                                        <a onclick="handleRouter('https://mdapp09.com/?_c=dha00003','https://mdapp09.com/?_c=dha00003')" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/niucme@latest/wp-content/uploads/2021/03/2021032600104926.png" width="100%" height="100%"></a>
+                                         </div>
+                <div style="padding-bottom:1.4rem;">
+                    <!-- 分类 -->
+                    <div class="list-title">福利视频APP推荐一</div>
+                    <!-- 分类app -->
+                    <div class="list-wrap">
+					<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(16)">
+                                <a href="http://app.vankiv.com/#/?m=1&channel=niuc" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/niucme@latest/wp-content/uploads/2021/06/17/2021061707450839.png" alt="香蕉漫画"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(16)">
+                                        <div class="name">
+                                            香蕉漫画 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">566 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="16" data-ioslink="http://app.vankiv.com/#/?m=1&channel=niuc" data-androidlink="http://app.vankiv.com/#/?m=1&channel=niuc">
+                                        <a href="http://app.vankiv.com/#/?m=1&channel=niuc" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">最懂你的成人漫画App！</div>
+                            </div>
+                        </div>
+						<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(16)">
+                                <a href="https://yyds1.me?agent=yyds20" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/niucme@latest/wp-content/uploads/2021/06/26/2021062601511946.jpeg" alt="1024核工厂"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(16)">
+                                        <div class="name">
+                                            1024核工厂 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">566 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="16" data-ioslink="https://yyds1.me?agent=yyds20" data-androidlink="https://yyds1.me?agent=yyds20">
+                                        <a href="https://yyds1.me?agent=yyds20" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">看百万片源，约同城少妇，玩外围嫩模！</div>
+                            </div>
+                        </div>
+						<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(16)">
+                                <a href="https://t66y.site?agent=t66y24" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/niucme@latest/wp-content/uploads/2021/06/26/2021062601525896.jpeg" alt="草榴"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(16)">
+                                        <div class="name">
+                                            草榴 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">566 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="16" data-ioslink="https://t66y.site?agent=t66y24" data-androidlink="https://t66y.site?agent=t66y24">
+                                        <a href="https://t66y.site?agent=t66y24" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">看百万片源，约同城少妇，玩外围嫩模！</div>
+                            </div>
+                        </div>
+						<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(16)">
+                                <a href="https://sm110.me?agent=sm11020" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/niucme@latest/wp-content/uploads/2021/06/26/2021062601562385.jpeg" alt="SM视频"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(16)">
+                                        <div class="name">
+                                            SM视频 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">566 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="16" data-ioslink="https://sm110.me?agent=sm11020" data-androidlink="https://sm110.me?agent=sm11020">
+                                        <a href="https://sm110.me?agent=sm11020" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">看百万片源，约同城少妇，玩外围嫩模！</div>
+                            </div>
+                        </div>
+					<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(16)">
+                                <a href="https://z91av.me?_c=tz9118" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/niucme@latest/wp-content/uploads/2021/06/16/2021061603235949.png" alt="真91"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(16)">
+                                        <div class="name">
+                                            真91 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">566 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="16" data-ioslink="https://z91av.me?_c=tz9118" data-androidlink="https://z91av.me?_c=tz9118">
+                                        <a href="https://z91av.me?_c=tz9118" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">看百万片源，约同城少妇，玩外围嫩模！</div>
+                            </div>
+                        </div>
+						<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(16)">
+                                <a href="https://llav1.me?_c=tliuzc18" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/niucme@latest/wp-content/uploads/2021/06/16/202106160328543.png" alt="榴莲视频"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(16)">
+                                        <div class="name">
+                                            榴莲视频 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">566 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="16" data-ioslink="https://llav1.me?_c=tliuzc18" data-androidlink="https://llav1.me?_c=tliuzc18">
+                                        <a href="https://llav1.me?_c=tliuzc18" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">看百万片源，约同城少妇，玩外围嫩模！</div>
+                            </div>
+                        </div>
+						<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(16)">
+                                <a href="https://xrk1.me?_c=txrk04" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/niucme@latest/wp-content/uploads/2021/06/16/2021061603294292.png" alt="向日葵视频"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(16)">
+                                        <div class="name">
+                                            向日葵视频 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">566 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="16" data-ioslink="https://xrk1.me?_c=txrk04" data-androidlink="https://xrk1.me?_c=txrk04">
+                                        <a href="https://xrk1.me?_c=txrk04" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">看百万片源，约同城少妇，玩外围嫩模！</div>
+                            </div>
+                        </div>
+					<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(16)">
+                                <a href="https://91sg02.site?agent=t91sg30" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/niucme@latest/wp-content/uploads/2021/06/08/2021060802502954.png" alt="91丝瓜"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(16)">
+                                        <div class="name">
+                                            91丝瓜 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">566 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="16" data-ioslink="https://91sg02.site?agent=t91sg30" data-androidlink="https://91sg02.site?agent=t91sg30>
+                                        <a href="https://91sg02.site?agent=t91sg30" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">91丝瓜，纵享湿滑！分享可得观影金！</div>
+                            </div>
+                        </div>
+					<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(16)">
+                                <a href="https://dy91qz.com?channel=t61dy99" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/niucme@latest/wp-content/uploads/2021/06/04/202106040230354.png" alt="茄子视频"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(16)">
+                                        <div class="name">
+                                            茄子视频 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">566 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="16" data-ioslink="https://dy91qz.com?channel=t61dy99" data-androidlink="https://dy91qz.com?channel=t61dy99">
+                                        <a href="https://dy91qz.com?channel=t61dy99" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">百万热门成人视频，各地约炮楼凤信息全都有！</div>
+                            </div>
+                        </div>
+						<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(16)">
+                                <a href="https://dy91fq.com?channel=t61dy59" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/niucme@latest/wp-content/uploads/2021/06/04/2021060402274769.png" alt="番茄社区"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(16)">
+                                        <div class="name">
+                                            番茄社区 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">566 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="16" data-ioslink="https://dy91fq.com?channel=t61dy59" data-androidlink="https://dy91fq.com?channel=t61dy59">
+                                        <a href="https://dy91fq.com?channel=t61dy59" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">看百万片源，约同城少妇，玩外围嫩模！</div>
+                            </div>
+                        </div>
+						<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(16)">
+                                <a href="https://dy91cm.com?channel=t61dy19" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/niucme@latest/wp-content/uploads/2021/06/04/2021060402262520.png" alt="草莓视频"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(16)">
+                                        <div class="name">
+                                            草莓视频 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">566 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="16" data-ioslink="https://dy91cm.com?channel=t61dy19" data-androidlink="https://dy91cm.com?channel=t61dy19">
+                                        <a href="https://dy91cm.com?channel=t61dy19" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">看百万片源，约同城少妇，玩外围嫩模！</div>
+                            </div>
+                        </div>
+						<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(16)">
+                                <a href="https://qc01.me?_c=tbwqq01" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/niucme@latest/wp-content/uploads/2021/06/04/2021060402241078.png" alt="91青青草"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(16)">
+                                        <div class="name">
+                                            91青青草 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">566 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="16" data-ioslink="https://qc01.me?_c=tbwqq01" data-androidlink="https://qc01.me?_c=tbwqq01">
+                                        <a href="https://qc01.me?_c=tbwqq01" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">深夜看片神器福利无限免费观看。欧美日韩素人援交国产校园妹</div>
+                            </div>
+                        </div>
+						<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(16)">
+                                <a href="https://xj01.me?_c=tbwxj01" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/niucme@latest/wp-content/uploads/2021/06/04/2021060402213758.png" alt="小姐姐视频"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(16)">
+                                        <div class="name">
+                                            小姐姐视频 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">566 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="16" data-ioslink="https://xj01.me?_c=tbwxj01" data-androidlink="https://xj01.me?_c=tbwxj01">
+                                        <a href="https://xj01.me?_c=tbwxj01" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">海量视频每天更新永久免费，超清1080P画质要你好看！</div>
+                            </div>
+                        </div>
+						<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(16)">
+                                <a href="https://avnnip.xyz?ch=cwx33" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/niucme@latest/wp-content/uploads/2021/06/04/2021060402162354.png" alt="知音视频"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(16)">
+                                        <div class="name">
+                                            知音视频 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">566 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="16" data-ioslink="https://avnnip.xyz?ch=cwx33" data-androidlink="https://avnnip.xyz?ch=cwx33">
+                                        <a href="https://avnnip.xyz?ch=cwx33" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">全网最快中字AV，汉化组每日更新。日本AV、成人漫画、韩国三级等。爽片腐漫等你来赞！</div>
+                            </div>
+                        </div>
+					<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(16)">
+                                <a href="https://cat01.me?_c=tbwnm01" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/niucme@latest/wp-content/uploads/2021/06/02/2021060206083397.png" alt="小奶猫视频"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(16)">
+                                        <div class="name">
+                                            小奶猫视频 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">566 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="16" data-ioslink="https://cat01.me?_c=tbwnm01" data-androidlink="https://cat01.me?_c=tbwnm01">
+                                        <a href="https://cat01.me?_c=tbwnm01" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">看百万片源，约同城少妇，玩外围嫩模！</div>
+                            </div>
+                        </div>
+                        <div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(16)">
+                                <a href="https://dypro.site?channel=dy916905" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/91douyin.png" alt="91抖阴"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(16)">
+                                        <div class="name">
+                                            91抖阴 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">566 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="16" data-ioslink="https://dypro.site?channel=dy916905" data-androidlink="https://dypro.site?channel=dy916905">
+                                        <a href="https://dypro.site?channel=dy916905" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">抖阴短视频，抖阴短视频，万部热门成人视频，各种分类全都有！</div>
+                            </div>
+                        </div>
+						<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(17)">
+                                <a href="https://gj91pp.com?channel=tbwpp52851" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/niucme@latest/wp-content/uploads/2021/05/29/2021052823274787.png" alt="91啪啪"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(17)">
+                                        <div class="name">
+                                            91啪啪 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">566 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="17" data-ioslink="https://gj91pp.com?channel=tbwpp52851" data-androidlink="https://gj91pp.com?channel=tbwpp52851">
+                                        <a href="https://gj91pp.com?channel=tbwpp52851" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">百万热门成人视频，各地约炮楼凤信息全都有！</div>
+                            </div>
+                        </div>
+						<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(18)">
+                                <a href="https://gj91qz.com?channel=tbwqz52851" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/niucme@latest/wp-content/uploads/2021/05/29/2021052823340482.png" alt="91茄子"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(18)">
+                                        <div class="name">
+                                            91茄子 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">566 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="18" data-ioslink="https://gj91qz.com?channel=tbwqz52851" data-androidlink="https://gj91qz.com?channel=tbwqz52851">
+                                        <a href="https://gj91qz.com?channel=tbwqz52851" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">百万热门成人视频，各地约炮楼凤信息全都有！</div>
+                            </div>
+                        </div>
+						<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(19)">
+                                <a href="https://gj91hg.com?channel=tbwhg52851" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/niucme@latest/wp-content/uploads/2021/05/29/2021052823433199.png" alt="91黄瓜"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(19)">
+                                        <div class="name">
+                                            91黄瓜 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">566 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="19" data-ioslink="https://gj91hg.com?channel=tbwhg52851" data-androidlink="https://gj91hg.com?channel=tbwhg52851">
+                                        <a href="https://gj91hg.com?channel=tbwhg52851" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">百万热门成人视频，各地约炮楼凤信息全都有！</div>
+                            </div>
+                        </div>
+			    <div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(16)">
+                                <a href="https://mtajfu.xyz/?ch=cwx33" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/niucme@latest/wp-content/uploads/2021/05/19/2021051906362139.jpg" alt="蜜桃视频"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(16)">
+                                        <div class="name">
+                                            蜜桃视频 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">566 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="16" data-ioslink="https://mtajfu.xyz/?ch=cwx33" data-androidlink="https://mtajfu.xyz/?ch=cwx33">
+                                        <a href="https://mtajfu.xyz/?ch=cwx33" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">品类最全原创视频内容，热门，劲爆，独家，偷拍。</div>
+                            </div>
+                        </div>
+						<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(21)">
+                                <a href="https://mt03.me?_c=mtjg32704" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/niucme@latest/wp-content/uploads/2021/03/2021032801200177.png" alt="妹团"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(21)">
+                                        <div class="name">
+                                            妹团 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">188 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="21" data-ioslink="https://mt03.me?_c=mtjg32704" data-androidlink="https://mt03.me?_c=mtjg32704">
+                                        <a href="https://mt03.me?_c=mtjg32704" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">约啪、裸聊、看片，在妹团，东半球最大色狼聚集地，妹团在手，约啪我有！</div>
+                            </div>
+                        </div>
+                        <div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(0)">
+                                <a href="https://app.peach-av.com/chan/mt0017/a2jv" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/niucme@latest/wp-content/uploads/2021/05/22/2021052206263950.png" alt="水蜜桃"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(0)">
+                                        <div class="name">
+                                            水蜜桃 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">425 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="0" data-ioslink="https://app.peach-av.com/chan/mt0017/a2jv" target="_blank" data-androidlink="https://app.peach-av.com/chan/mt0017/a2jv" target="_blank">
+                                        <a href="https://app.peach-av.com/chan/mt0017/a2jv" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">最全国语av视频，你想象不到的大尺度视频，都在【水蜜桃】！</div>
+                            </div>
+                        </div>
+                        <div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(14)">
+                                <a href="https://203you.me/?_c=a0122" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/youmi.png" alt="尤蜜"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(15)">
+                                        <div class="name">
+                                            尤蜜 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">665 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="14" data-ioslink="https://203you.me/?_c=a0122" data-androidlink="https://203you.me/?_c=a0122">
+                                        <a href="https://203you.me/?_c=a0122" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">优质P站UP主集结地,500优质UP主,10万+视频,2000万真是用户。</div>
+                            </div>
+                        </div>
+						<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(2)">
+                                <a href="https://jdhot11.site/?_c=jdzc022" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/jingdong.png" alt="精东视频"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(2)">
+                                        <div class="name">
+                                            精东视频 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">520 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="2" data-ioslink="https://jdhot11.site/?_c=jdzc022" target="_blank" data-androidlink="https://jdhot11.site/?_c=jdzc022" target="_blank">
+                                        <a href="https://jdhot11.site/?_c=jdzc022" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">精东-只为性福品质。视频，图文，约啪。</div>
+                            </div>
+                        </div>
+						<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(3)">
+                                <a href="https://sg01.me/?_c=sg008" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/swag.png" alt="SWAG视频"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(3)">
+                                        <div class="name">
+                                            SWAG视频 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">450 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="3" data-ioslink="https://sg01.me/?_c=sg008" target="_blank" data-androidlink="https://sg01.me/?_c=sg008" target="_blank">
+                                        <a href="https://sg01.me/?_c=sg008" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">华人第一原创AV平台，全国百城妹子免费约。</div>
+                            </div>
+                        </div>
+						<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(4)">
+                                <a href="https://wesex.cc/?_c=wx08zc" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/weixing.png" alt="微性视频"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(4)">
+                                        <div class="name">
+                                            微性视频 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">855 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="4" data-ioslink="https://wesex.cc/?_c=wx08zc" target="_blank" data-androidlink="https://wesex.cc/?_c=wx08zc" target="_blank">
+                                        <a href="https://wesex.cc/?_c=wx08zc" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">微性服务于成人需求及周边，满足你的看，撸，约，炫等各方面需求。</div>
+                            </div>
+                        </div>
+						<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(5)">
+                                <a href="https://dou13.me/?channel=dy40zc" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/douyinguoji.png" alt="抖阴国际"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(5)">
+                                        <div class="name">
+                                            抖阴国际 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">480 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="5" data-ioslink="https://dou13.me/?channel=dy40zc" target="_blank" data-androidlink="https://dou13.me/?channel=dy40zc" target="_blank">
+                                        <a href="https://dou13.me/?channel=dy40zc" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">【抖阴国际】记录和别人老婆的性福生活！</div>
+                            </div>
+                        </div>
+						<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(6)">
+                                <a href="https://slf508.com?_c=slf6906" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/selifan.png" alt="涩里番"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(6)">
+                                        <div class="name">
+                                            涩里番 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">280 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="6" data-ioslink="https://slf508.com?_c=slf6906" target="_blank" data-androidlink="https://slf508.com?_c=slf6906" target="_blank">
+                                        <a href="https://slf508.com?_c=slf6906" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">//成人韩漫、动漫//二次元一切尤物，涩里番应有尽有！</div>
+                            </div>
+                        </div>
+						<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(7)">
+                                <a href="http://fpapa6.site/?code=dfha005" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/fanpapa.png" alt="番啪啪"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(7)">
+                                        <div class="name">
+                                            番啪啪 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">582 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="7" data-ioslink="http://fpapa6.site/?code=dfha005" target="_blank" data-androidlink="http://fpapa6.site/?code=dfha005" target="_blank">
+                                        <a href="http://fpapa6.site/?code=dfha005" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">全网第一原创啪啪基地！</div>
+                            </div>
+                        </div>
+						<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(8)">
+                                <a href="https://mt03.me?_c=mtjg32704" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/xvideo.png" alt="xvideo"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(8)">
+                                        <div class="name">
+                                            XVIDEO <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">380 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="8" data-ioslink="https://mt03.me?_c=mtjg32704" target="_blank" data-androidlink="https://mt03.me?_c=mtjg32704" target="_blank">
+                                        <a href="https://mt03.me?_c=mtjg32704" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">全国最大约炮平台、绝美一对一主播！！！</div>
+                            </div>
+                        </div>
+						<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(9)">
+                                <a href="https://21dy.me?channel=qd080301" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/douyinduanshipin.ico" alt="抖阴短视频"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(9)">
+                                        <div class="name">
+                                            抖阴短视频 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">680 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="9" data-ioslink="https://21dy.me?channel=qd080301" target="_blank" data-androidlink="https://21dy.me?channel=qd080301" target="_blank">
+                                        <a href="https://21dy.me?channel=qd080301" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">拿起手机，做自己的性爱导演！</div>
+                            </div>
+                        </div>
+						<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(10)">
+                                <a href="https://sg106.me?channel=tbwjjg026" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/niucme@latest/wp-content/uploads/2021/05/29/2021052823173124.png" alt="丝瓜视频"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(10)">
+                                        <div class="name">
+                                            丝瓜视频 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">180 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="10" data-ioslink="https://sg106.me?channel=tbwjjg026" target="_blank" data-androidlink="https://sg106.me?channel=tbwjjg026" target="_blank">
+                                        <a href="https://sg106.me?channel=tbwjjg026" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">解放天性，排遣寂寞，深夜不孤独！</div>
+                            </div>
+                        </div>
+						<!--<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(11)">
+                                <a href="https://slf508.com?_c=slf6906" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/selifan.png" alt="涩里番"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(11)">
+                                        <div class="name">
+                                            涩里番 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">380 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="11" data-ioslink="https://slf508.com?_c=slf6906" target="_blank" data-androidlink="https://slf508.com?_c=slf6906" target="_blank">
+                                        <a href="https://slf508.com?_c=slf6906" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">//成人韩漫、动漫//二次元一切尤物！</div>
+                            </div>
+                        </div>-->
+					<!-- 分类 -->
+                    <div class="list-title">福利视频APP推荐二</div>
+                    <!-- 分类app -->
+                    <div class="list-wrap">
+						<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(12)">
+                                <a href="https://ssis.xyz?dc=NNCA" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/sis.png" alt="色中色视频"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(12)">
+                                        <div class="name">
+                                            色中色视频 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">625 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="12" data-ioslink="https://ssis.xyz?dc=NNCA" data-androidlink="https://ssis.xyz?dc=NNCA">
+                                        <a href="https://ssis.xyz?dc=NNCA" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">百万核心粉，助你成就原创大神！</div>
+                            </div>
+                        </div>
+						<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(13)">
+                                <a href="https://cauolews.fun?ch=lvbu" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/caoliu.png" alt="草榴视频"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(13)">
+                                        <div class="name">
+                                            草榴视频 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">325 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="13" data-ioslink="https://cauolews.fun?ch=lvbu" data-androidlink="https://cauolews.fun?ch=lvbu">
+                                        <a href="https://cauolews.fun?ch=lvbu" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">千万榴友邀你共赏精品性爱。</div>
+                            </div>
+                        </div>
+						<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(13)">
+                                <a href="https://flsdy.fun/?ch=lvbu" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/91xj.png" alt="91香蕉视频"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(13)">
+                                        <div class="name">
+                                            91香蕉视频 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">325 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="13" data-ioslink="https://daxue.zongliyun.com/downloadApp/index.html?invite_code=U0HBEQ&_t=kde62n8x&" data-androidlink="https://daxue.zongliyun.com/downloadApp/index.html?invite_code=U0HBEQ&_t=kde62n8x&">
+                                        <a href="https://daxue.zongliyun.com/downloadApp/index.html?invite_code=U0HBEQ&_t=kde62n8x&" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">ALEXA排名第一的中文视频APP，国产、日本AV、韩国裸播、欧美，全部免费观看。</div>
+                            </div>
+                        </div>
+						<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(14)">
+                                <a href="https://invited.simibo.net/c-1/a-fdW8/" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/luxiansheng.png" alt="撸先生"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(14)">
+                                        <div class="name">
+                                            撸先生 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">665 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="14" data-ioslink="https://invited.simibo.net/c-1/a-fdW8/" data-androidlink="https://invited.simibo.net/c-1/a-fdW8/">
+                                        <a href="https://invited.simibo.net/c-1/a-fdW8/" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">擼先生-地表最强看片神器。</div>
+                            </div>
+                        </div>
+						<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(14)">
+                                <a href="https://mdapp09.com/?_c=dha00003" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/madou.png" alt="麻豆传媒映画"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(14)">
+                                        <div class="name">
+                                            麻豆传媒映画 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">665 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="14" data-ioslink="https://mdapp09.com/?_c=dha00003" data-androidlink="https://mdapp09.com/?_c=dha00003">
+                                        <a href="https://mdapp09.com/?_c=dha00003" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">融入生活的色，解你夜里的渴。</div>
+                            </div>
+                        </div>
+                        <div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(15)">
+                                <a href="https://app.1wgt.xyz/i-2GY0UW" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/bense.png" alt="本色视频"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(15)">
+                                        <div class="name">
+                                            本色视频 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">301 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="15" data-ioslink="https://app.1wgt.xyz/i-2GY0UW" data-androidlink="https://app.1wgt.xyz/i-2GY0UW">
+                                        <a href="https://app.1wgt.xyz/i-2GY0UW" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">网传不雅视频已错过？撸管看片网站无处寻？</div>
+                            </div>
+                        </div>
+						<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(18)">
+                                <a href="https://spjugt.xyz?ch=cwx33" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/niucme@latest/wp-content/uploads/2020/08/2020081523243831.png" alt="草榴短视频"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(18)">
+                                        <div class="name">
+                                            草榴短视频 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">665 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="18" data-ioslink="https://spjugt.xyz?ch=cwx33" data-androidlink="https://spjugt.xyz?ch=cwx33">
+                                        <a href="https://spjugt.xyz?ch=cwx33" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">最新最热大事件，短视频刷到爽。</div>
+                            </div>
+                        </div>
+                        <div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(18)">
+                                <a href="http://ppffy.me?dc=LUBU" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/paofu.png" alt="泡芙短视频"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(18)">
+                                        <div class="name">
+                                            泡芙短视频 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">665 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="18" data-ioslink="http://ppffy.me?dc=LUBU" data-androidlink="http://ppffy.me?dc=LUBU">
+                                        <a href="http://ppffy.me?dc=LUBU" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">泡芙短视频，记录性福时光。</div>
+                            </div>
+                        </div>
+                        <div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(17)">
+                                <a href="http://dy001.me/index_h5.html?code=叩〇*3im9lbqg*channel" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/51av.png" alt="51AV"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(17)">
+                                        <div class="name">
+                                            51AV <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">251 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="17" data-ioslink="http://dy001.me/index_h5.html?code=叩〇*3im9lbqg*channel" data-androidlink="http://dy001.me/index_h5.html?code=叩〇*3im9lbqg*channel">
+                                        <a href="http://dy001.me/index_h5.html?code=叩〇*3im9lbqg*channel" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">用51开启性爱天地，让荷尔蒙铺天盖地。首创中文AV。</div>
+                            </div>
+                        </div>
+                        <!--<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(22)">
+                                <a href="https://rjlyapps.xyz/hycdh539" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/niucme@latest/wp-content/uploads/2021/03/2021030504042033.jpg" alt="黄游圈"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(22)">
+                                        <div class="name">
+                                            极品呦呦自拍 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">188 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="22" data-ioslink="https://99fl01.club/nightdh539tt" data-androidlink="https://99fl01.club/nightdh539tt">
+                                        <a href="https://99fl01.club/nightdh539tt" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">极品呦呦自拍 - 黄瓜破解。</div>
+                            </div>
+                        </div>
+						<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(19)">
+                                <a href="https://jkmm.link/healthdh539" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/healthdh539.png" alt="外流视频大全"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(19)">
+                                        <div class="name">
+                                            外流视频大全 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">188 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="19" data-ioslink="https://jkmm.link/healthdh539" data-androidlink="https://jkmm.link/healthdh539">
+                                        <a href="https://jkmm.link/healthdh539" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">外流视频大全。</div>
+                            </div>
+                        </div>
+						<div class="item-wrap">
+                            <div class="img-wrap" onclick="toinfo(20)">
+                                <a href="https://ihjp.link/indh539" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/indh539.png" alt="快猫视频破解"></a>
+                            </div>
+                            <div class="content">
+                                <div class="row1">
+                                    <div class="col-left" onclick="toinfo(20)">
+                                        <div class="name">
+                                            快猫视频破解 <span class="tj-wrap">推荐</span> </div>
+                                        <div class="count">188 万次下载</div>
+                                    </div>
+                                    <div class="btn-wrap btn-download" data-id="20" data-ioslink="https://ihjp.link/indh539" data-androidlink="https://ihjp.link/indh539">
+                                        <a href="https://ihjp.link/indh539" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/download.png" alt=""></a> 下载
+                                    </div>
+                                </div>
+                                <div class="desc">快猫视频破解。</div>
+                            </div>
+                        </div>-->
+                                            </div>
+                </div>
+                <div class="appendTemplate"></div>
+            </div>
+            <input type="hidden" id="page" value="2">
+        </div>
+    </div>
+    <div class="screen-help">
+        <div class="help-inner">
+            <img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/screen-help-close.png" class="img-close">
+            <img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/screen-help.png" class="screenshot">
+        </div>
+    </div>
+    <!--<div class="add-screen">
+        <div class="col1">
+            <div class="close-wrap">
+                <img src="/public/juhe/picture/screen-close.png" class="img-close">
+            </div>
+
+            <img src="/public/juhe/static/logob256.png" class="img-logo ios">
+        </div>
+        <div class="text ios">成人APP福利导航中心新增至主画面</div>
+        <div class="text android">将本站保存至书签，老司机永不迷路！</div>
+        <div class="add-btn ios">添加</div>
+    </div>-->
+    <div class="mark-wrap">
+        <div class="mark-inner">正在安装，请到桌面查看进度！</div>
+    </div>
+
+    <div class="pc-download">
+        <div class="inner-wrap">
+            <div class="qrcode-wrap">
+                <div class="item qrcode-ios">
+                    <div class="qrcode"></div>
+                    <div class="text">IOS 版</div>
+                </div>
+                <div class="item qrcode-android">
+                    <div class="qrcode"></div>
+                    <div class="text">Android 版</div>
+                </div>
+            </div>
+            <div class="close-wrap" target="_blank"><img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/close.png" alt="close"></div>
+        </div>
+    </div>
+<div class="qrcode_piao">
+        <img src="https://cdn.jsdelivr.net/gh/niucnet/shipin@latest/img/av.png">
+        <div>手机扫描打开</div>
+</div>   
+     <script>
+        var u = navigator.userAgent;
+        let isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);     //判断是否是 iOS终端
+        function handleRouter(iosUrl,androidUrl) {
+            // 若不传地址，ios默认跳转百度，android 默认跳转谷歌翻译
+            iosUrl = iosUrl || 'http://www.baidu.com'
+            androidUrl = androidUrl || 'https://translate.google.cn/'
+            if (isIOS) {
+                window.open(iosUrl)
+            }else {
+                window.open(androidUrl)
+            }
+        }
+        var mobile = isIOS ? '2' : '1';  //*0web 1android 2ios*//
+        $(function () {
+            var swiper = new Swiper('.swiper-container', {
+                pagination: '.swiper-pagination',
+                autoplay: 4000,
+                slidesPerView: 1,
+                paginationClickable: true,
+                spaceBetween: 10,
+                loop: true
+            });
+            if (mobile !== '0') {
+                $(".add-screen").css({ "visibility": "visible" });
+                if (mobile === '1') {
+                    $(".android").css({ "display": "flex" })
+                } else if (mobile === '2') {
+                    $(".ios").css({ "display": "flex" })
+                } else {
+
+                }
+            }
+            $(".add-screen .close-wrap").click(function () {
+                $(".add-screen").css({ "visibility": "hidden" })
+            });
+
+            $(".add-screen .add-btn").click(function () {
+                $(".screen-help").css({ "visibility": "visible" })
+            });
+
+
+            $(".screen-help").click(function (e) {
+                if (e.target.className !== 'screenshot') {
+                    $(".screen-help").css({ "visibility": "hidden" })
+                }
+            });
+
+
+            $(".btn-download").click(function (e) {
+                var data = $(this).data();
+                if (mobile === '1') {
+
+                    window.location.href = data.androidlink;
+
+                } else if (mobile === '2') {
+
+                    e.preventDefault();
+                    window.location.href = data.ioslink;
+                    $('.mark-wrap').css({ "display": 'flex' });
+                    setTimeout(function () { $('.mark-wrap').hide() }, 1500);
+
+                } else if (mobile === '0') {
+
+                    $(".pc-download").css({ "visibility": "visible" });
+                    $('.qrcode-ios .qrcode').html("").qrcode({ width: 150, height: 150, text: data.ioslink });
+                    $('.qrcode-android .qrcode').html("").qrcode({ width: 150, height: 150, text: data.androidlink });
+
+                } else {
+                    console.log('illegal mobile:' + mobile + typeof mobile)
+                }
+
+            });
+
+            $(".pc-download").click(function (e) {
+                if (e.target.className !== 'qrcode-wrap') {
+                    $(".pc-download").css({ "visibility": "hidden" })
+                }
+            })
+        });
+    </script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?ddd8bf982ea3b89cf7370582703539f3";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
 </script>
- 
-
-
-</body>
-</html>
+</body></html>
