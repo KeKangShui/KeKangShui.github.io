@@ -4,62 +4,107 @@
 <head>
     <meta charset="UTF-8">
     <title>as 播放器</title>
-    
+
 </head>
 
-<body>
+<body width="100%" height="100%">
     <script src="https://cdn.jsdelivr.net/npm/hls.js@1.0.7/dist/hls.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dplayer@1.26.0/dist/DPlayer.min.js"></script>
-    <div id="dplayer"></div>
+    <div id="dplayer" width="50%" height="50%"></div>
     <h2>
-        as 播放器
+        香港布偶
     </h2>
-
+      <button onclick="last()">上一集</button>   <button onclick="next()">下一集</button>    <button onclick="final()">最后一页</button>
     <script>
+        class movie {
+            constructor(title, url) {
+                this.title = title;
+                this.url = url;
+            }
+        }
+        var dic = {
+            "一日女友的漂亮姐姐": 'https://cdn.jsdelivr.net/gh/KeKangShui/move/HongKongDoll80/HongKongDoll80.m3u8',
+            "一日女友的漂亮姐姐 中篇——上部": 'https://cdn.jsdelivr.net/gh/KeKangShui/move/hongkongdoll1/hongkongdoll1.m3u8',
+            "一日女友的漂亮姐姐 中篇——下部": 'https://cdn.jsdelivr.net/gh/KeKangShui/move/hongkongdoll2/hongkongdoll2.m3u8',
+            "一日女友的漂亮姐姐 终章": 'https://cdn.jsdelivr.net/gh/KeKangShui/move/20210625/20210625-1/20210625-1.m3u8',
+            "穹妹": "https://cdn.jsdelivr.net/gh/KeKangShui/move/HongKongDoll/gongmei/m.m3u8",
+            "甜美游戏陪玩": "https://cdn.jsdelivr.net/gh/KeKangShui/move/HongKongDoll/sweet1/playGame.m3u8",
+            "甜美游戏陪玩2": "https://cdn.jsdelivr.net/gh/KeKangShui/move/HongKongDoll/sweet2/playGame.m3u8",
+            "甜美游戏陪玩3": "https://cdn.jsdelivr.net/gh/KeKangShui/move/HongKongDoll/sweet3/playGame.m3u8",
+            "甜美游戏终章":"https://cdn.jsdelivr.net/gh/KeKangShui/move/HongKongDoll/sweet4/playGame.m3u8",
+            "蛇喰梦子": "https://cdn.jsdelivr.net/gh/KeKangShui/move/HongKongDoll/mengzi/m.m3u8",
+            "青蛇": "https://cdn.jsdelivr.net/gh/KeKangShui/move/HongKongDoll/greenshe/snake.m3u8",
+            "精油按摩": "https://cdn.jsdelivr.net/gh/niucnet/move/20210625/20210625-2/20210625-2.m3u8",
+            "姐姐的梦境 番外篇": "https://cdn.jsdelivr.net/gh/niucnet/move/20210617-5/20210617-5.m3u8",
+        }
 
-const dp = new DPlayer({
-    container: document.getElementById('dplayer'),
-    autoplay: false,
-    theme: '#FADFA3',
-    loop: true,
-    lang: 'zh-cn',
-    screenshot: true,
-    hotkey: true,
-    preload: 'auto',
-    volume: 0.7,
-    mutex: true,
-    video: {
-        quality: [
-            {
-                name: 'HD',
-                url: 'https://cdn.jsdelivr.net/gh/KeKangShui/move/HongKongDoll80/HongKongDoll80.m3u8',
-                type: 'hls',
-            },
-            {
-                name: 'SD',
-                url: 'http://static.smartisanos.cn/common/video/t1-ui.mp4',
-                type: 'normal',
-            },
-        ],
-        defaultQuality: 0,
-        pic: 'demo.png',
-        thumbnails: 'thumbnails.jpg',
-        // url: 'https://cdn.jsdelivr.net/gh/KeKangShui/move/HongKongDoll80/HongKongDoll80.m3u8',
-        // type: 'hls',
-    // }
-    }
-    // ,
-    // danmaku: {
-    //     id: '9E2E3368B56CDBB4',
-    //     api: 'https://api.prprpr.me/dplayer/',
-    //     token: 'tokendemo',
-    //     maximum: 1000,
-    //     addition: ['https://api.prprpr.me/dplayer/v3/bilibili?aid=4157142'],
-    //     user: 'DIYgod',
-    //     bottom: '15%',
-    //     unlimited: true,
-    // }
-});
+        function dicExe(dic) {
+            var list=[];
+            for (var key in dic) {
+                var item = dic[key];
+                list.push(new movie(key,item))
+            }
+            return list;
+        }
+
+        var urlList = dicExe(dic);
+
+        var index = 0;
+        function open() {
+            console.log(23)
+            if (index > urlList.length||index<0) {
+                index = 0;
+            }
+            document.querySelector('h2').innerText = urlList[index].title;
+            const dp = new DPlayer({
+                container: document.getElementById('dplayer'),
+                autoplay: true,
+                theme: '#FADFA3',
+                loop: true,
+                lang: 'zh-cn',
+                screenshot: true,
+                hotkey: true,
+                preload: 'auto',
+                volume: 0.7,
+                mutex: true,
+                video: {
+                    url: urlList[index].url,
+                    type: 'hls',
+                    defaultQuality: 0,
+                    pic: 'demo.png',
+                    thumbnails: 'thumbnails.jpg',
+                    // url: 'https://cdn.jsdelivr.net/gh/KeKangShui/move/HongKongDoll80/HongKongDoll80.m3u8',
+                    // type: 'hls',
+                    // }
+                }
+                // ,
+                // danmaku: {
+                //     id: '9E2E3368B56CDBB4',
+                //     api: 'https://api.prprpr.me/dplayer/',
+                //     token: 'tokendemo',
+                //     maximum: 1000,
+                //     addition: ['https://api.prprpr.me/dplayer/v3/bilibili?aid=4157142'],
+                //     user: 'DIYgod',
+                //     bottom: '15%',
+                //     unlimited: true,
+                // }
+            });
+         
+        }
+
+        function next(){
+            open();
+            index++;
+        };
+        function last(){
+            index = index-2;
+            open();
+        }
+        next();
+        function final(){
+            index = urlList.length-1;
+            open();
+        }
     </script>
 </body>
 
